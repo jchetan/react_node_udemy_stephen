@@ -13,6 +13,7 @@
     "express": "^4.21.1",
     "mongoose": "8.8.0",
     "body-parser": "1.20.3",
-    "cors": "*"
+    "cors": "*",
+    "express-session": "1.18.1"
   }
 }

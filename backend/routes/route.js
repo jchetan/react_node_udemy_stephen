@@ -7,6 +7,7 @@ module.exports = (app) => {
     app.get(
         '/',
         (req, res) => {
+            console.log("session", req.session);
             res.send({
                 name: "Chetan Janardhana",
                 export1: keys.export1
@@ -42,10 +43,26 @@ module.exports = (app) => {
             const existingUser = await User.findOne({ login: login });
             if (existingUser) {
                 res.status(200).json({ status: "Login successful" });
+                req.session.user = existingUser.login;
             }
             else {
                 res.status(200).json({ status: "User does not exist" });
             }
+        }
+    );
+
+    app.get(
+        '/logout',
+        (req, res) => {            
+            res.status(200).json({ status: "Logout successful" });
+        }
+    );
+
+    app.get(
+        '/current-user',
+        (req, res) => {
+            const user = req.session.user;
+            res.send(200).json({ user: user });
         }
     );
 };
