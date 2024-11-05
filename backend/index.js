@@ -5,7 +5,7 @@ app.get(
     '/',
     (req, res) => {
         res.send({
-            name: "Chetan"
+            name: "Chetan Janardhana"
         });
     }
 );
