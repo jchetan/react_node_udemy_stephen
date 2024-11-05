@@ -1,15 +1,7 @@
 const express = require('express');
+const routes = require('./routes/route');
 const app = express();
-const keys = require('./config/keys');
 
-app.get(
-    '/',
-    (req, res) => {
-        res.send({
-            name: "Chetan Janardhana",
-            export1: keys.export1
-        });
-    }
-);
+routes(app);
 
 app.listen(5000);
